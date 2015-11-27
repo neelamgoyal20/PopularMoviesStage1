@@ -2,7 +2,7 @@
 <ImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/img_movie_item"
-    android:scaleType="fitXY"
+        android:scaleType="fitXY"
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="@dimen/grid_image_height" />

@@ -3,6 +3,9 @@ package com.learn.popularmovies;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.learn.popularmovies.fragments.MovieDetailsFragment;
 import com.learn.popularmovies.fragments.MovieGridFragment;
@@ -15,6 +18,10 @@ public class MovieDetailActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.detail_page_title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
 
         android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
@@ -26,5 +33,17 @@ public class MovieDetailActivity extends AppCompatActivity{
             transaction.commit();
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            MovieDetailActivity.this.finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

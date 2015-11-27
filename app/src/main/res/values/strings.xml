@@ -6,4 +6,6 @@
     <string name="msg_no_item">No element in the list.</string>
     <string name="msg_no_internet">This application needs internet connection.</string>
     <string name="msg_fetching_data">Fetching data from server...</string>
+    <string name="movie_data">Movie Data</string>
+    <string name="detail_page_title">Movie Detail</string>
 </resources>
