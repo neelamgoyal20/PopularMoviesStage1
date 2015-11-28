@@ -50,7 +50,9 @@ public class NetworkCallAsync extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        mProgressDialog.dismiss();
+        if(mProgressDialog!=null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
         if(result != null) {
             Gson gson = new Gson();
             JsonParser parser = new JsonParser();
@@ -92,7 +94,9 @@ public class NetworkCallAsync extends AsyncTask<Void, Void, String> {
             Log.d("Network", " Result ::: " + line);
         } catch (IOException e) {
             e.printStackTrace();
-            mProgressDialog.dismiss();
+            if(mProgressDialog!=null && mProgressDialog.isShowing()) {
+                mProgressDialog.dismiss();
+            }
         }
         return line;
     }
